@@ -144,7 +144,7 @@ pydantic==2.6.4
 pydantic-extra-types==2.6.0
 pydantic-settings==2.2.1
 pydantic_core==2.16.3
-pytest==8.1.1
+pytest
 pytest-cov==5.0.0
 pytest-mock
 python-dotenv==1.0.1
