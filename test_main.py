@@ -52,7 +52,7 @@ def test_create_a_course_invalid(client, user_manager):
     )
 
     assert response.status_code == 422
-    assert response.json() == {"message" : "Request body does not have 'semester' and 'teacher_id_list'"}
+    assert response.json() == {"detail" : "Request body must contain 'semester' and 'teacher_id_list'"}
 
 
 def test_import_students(client, user_manager, course_manager):
@@ -87,7 +87,7 @@ def test_import_students_invalid(client, user_manager, course_manager):
     )
     
     assert response.status_code == 422
-    assert response.json() == {"detail" : "Request body does not have 'student_id_list'"}
+    assert response.json() == {"detail" : "Request body must contain 'student_id_list'"}
 
 
 def test_create_a_course_not_found(client, user_manager, course_manager):
@@ -105,4 +105,4 @@ def test_create_a_course_not_found(client, user_manager, course_manager):
     )
 
     assert response.status_code == 404
-    assert response.json() == {"message" : "Course not found"}
+    assert response.json() == {"detail" : "Course not found"}

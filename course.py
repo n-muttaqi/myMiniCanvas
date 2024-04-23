@@ -27,10 +27,6 @@ class CourseManager:
             
         return None
 
-    def sync_with_database(self):
-        # will not implement here
-        pass
-
 class Course:
     def __init__(self, course_id, course_code, semester, teacher_list):
         self.course_id = course_id
