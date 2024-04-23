@@ -1,0 +1,22 @@
+name: miniCanvas Test
+on:
+  push:
+    branches:
+      - main
+      - 3-setup-github-actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: python set up
+        uses: actions/setup-python@v5
+      - name: install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest pytest-cov 
+      - name: run the tests
+        run: |
+          pytest --cov=.
