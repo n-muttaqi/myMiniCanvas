@@ -39,12 +39,12 @@ def import_students(courseid: int,
     student_id_list = request_body.get("student_id_list")
 
     if not student_id_list:
-        raise HTTPException(status_code=422, detail="Request body empty")
+        raise HTTPException(status_code=422, detail = "Request body must contain 'student_id_list'")
     
     course = coursemanager.find_a_course(courseid)
 
     if not course:
-        raise HTTPException(status_code=404, detail=f"Course doesn't exist")
+        raise HTTPException(status_code=404, detail=f"Course not found")
 
     student_list = usermanager.find_users(student_id_list)
     course.import_students(student_list)
