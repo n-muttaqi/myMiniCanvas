@@ -17,8 +17,11 @@ class UserManager:
         for user in self.user_list:
             if user.user_id in ids:
                 users_found.append(user)
-        
-        return users_found
+        if len(users_found) > 0:
+            return users_found
+        else:
+            return "Users not found"
+
 
 class User():
     def __init__(self, user_id: int, name: str, password: str, type: str):
