@@ -52,7 +52,7 @@ def test_create_a_course_invalid(client, user_manager):
     )
 
     assert response.status_code == 422
-    assert response.json() == {"message" : "Request body does not have 'semester' and 'teacher_id_list'"}
+    assert response.json() == {"detail" : "Request body must contain 'semester' and 'teacher_id_list'"}
 
 
 def test_import_students(client, user_manager, course_manager):
